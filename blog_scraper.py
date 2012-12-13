@@ -2,8 +2,6 @@ from BeautifulSoup import BeautifulSoup
 import mechanize
 import time
 import re
-from xlrd import open_workbook 
-from xlwt import easyxf
 
 pagenum = 1
 url = "http://www.bloghomepage.com" 
