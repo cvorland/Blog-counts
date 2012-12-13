@@ -6,7 +6,7 @@ from xlrd import open_workbook
 from xlwt import easyxf
 
 pagenum = 1
-url = "http://www.nutsci.org"
+url = "http://www.bloghomepage.com"
 browser = mechanize.Browser()
 page = browser.open(url)
 postcount = 0
@@ -33,21 +33,21 @@ while "false" in stop:
             site = browser.open(str(separatelinks)).read()
             soup = BeautifulSoup(site)
             content = soup.find("div", {"class":"content entry-content"})
-            fp = open('C:/python27/nutsciposts.html', 'w')
+            fp = open('C:/filename.html', 'w')
             fp.write(str(content))
             fp.close()
 
-            f = open('C:/python27/nutsciposts.html', 'r')
+            f = open('C:/filename.html', 'r')
             readit = f.read()
             f.close()
 
             onlytext = ''.join(BeautifulSoup(readit).findAll(text=True))
             #print onlytext
-            fp2 = open('C:/python27/nutsciposts.html', 'w')
+            fp2 = open('C:/filename.html', 'w')
             fp2.write(str(onlytext.encode('ascii','ignore')))
             fp2.close()
 
-            words = re.findall('\w+', open('C:/python27/nutsciposts.html').read().lower())
+            words = re.findall('\w+', open('C:/filename.html').read().lower())
             wordcount = len(words)
             print wordcount
             totalwordcount += wordcount
@@ -67,5 +67,5 @@ while "false" in stop:
             
         else:
             print "not a link"
-            url = "http://www.nutsci.org/page/"+str(pagenum)
+            url = "http://www.bloghomepage.com/page/"+str(pagenum)
             page = browser.open(url)
