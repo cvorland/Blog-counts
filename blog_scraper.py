@@ -6,7 +6,7 @@ from xlrd import open_workbook
 from xlwt import easyxf
 
 pagenum = 1
-url = "http://www.bloghomepage.com"
+url = "http://www.bloghomepage.com" 
 browser = mechanize.Browser()
 page = browser.open(url)
 postcount = 0
@@ -18,6 +18,7 @@ while "false" in stop:
     time.sleep(0)
     soup = BeautifulSoup(page)
     link = soup.find("span", {"class":"next"})
+    # attributes probably need to be changed depending on the wordpress theme used
     if "Older" in str(link):
         pagenum += 1
         print pagenum
